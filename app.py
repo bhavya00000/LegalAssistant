@@ -3,7 +3,9 @@ from flask import Flask, render_template, request, session, redirect, url_for, j
 from flask_babel import Babel, get_locale, gettext
 from flask_session import Session
 from chat import get_response
+from train import train_chatbot_model
 
+app1 = train_chatbot_model('intents.json', 'data.pth')
 app = Flask(__name__)
 babel = Babel(app)
 
