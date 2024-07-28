@@ -80,7 +80,10 @@ class Chatbox {
             })
             .catch((error) => {
                 console.error('Error:', error);
+                let errorMsg = { name: "Sam", message: "Sorry, I'm having trouble connecting. Please try again later." };
+                this.messages.push(errorMsg);
                 this.updateChatText(chatbox);
+                textField.value = '';
             });
     }
 
@@ -95,7 +98,7 @@ class Chatbox {
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
-        fetch('http://127.0.0.1:5000/predict', {
+        fetch('/predict', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',

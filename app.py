@@ -3,8 +3,11 @@ from flask import Flask, render_template, request, session, redirect, url_for, j
 from flask_babel import Babel, get_locale, gettext
 from flask_session import Session
 from chat import get_response
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
 babel = Babel(app)
 
 app.config['SESSION_TYPE'] = 'filesystem'
