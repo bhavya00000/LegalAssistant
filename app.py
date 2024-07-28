@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, session, redirect, url_for, jsonify
+from flask import Flask, render_template, request, session, redirect, url_for, jsonify, abort
 from flask_babel import Babel, get_locale, gettext
 from flask_session import Session
 from chat import get_response
@@ -46,8 +46,12 @@ def ask_query():
     return render_template('kyr.html', current_lang=current_lang)
 @app.route('/labour')
 def labour():
-    current_lang = session.get('lang', 'Default')
-    return render_template('labour.html', current_lang=current_lang)
+    try:
+        current_lang = session.get('lang', 'Default')
+        return render_template('labour.html', current_lang=current_lang)
+    except Exception as e:
+        app.logger.error(f"Error rendering labour.html: {str(e)}")
+        abort(500)
 @app.route('/login')
 def login():
     current_lang = session.get('lang', 'Default')
