@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ gettext('Your Website')}}</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles1.css')}}"/>
+    
+</head>
+<body>
+    <div class="chatbox__button">
+       
+        <a href="{{ url_for('index') }}"><button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button></a>
+    </div>
+    <!-- <a href="{{ url_for('index') }}">Know your Rights-></a> -->
+    
+    <div class="topnav">
+        <div class="search-bar-container">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+  
+        <div class="top-content">
+            <a href="#box">{{ gettext('Skip to main Content')}}</a>
+        
+            <a href="{{ url_for('set_language', lang='hi') }}">Hindi</a>
+        
+            <a href="{{ url_for('set_language', lang='en') }}">English</a>
+        </div>
+    </div>
+    <div class="top-navbar">
+        <div class="logo">
+            <table>
+                <tr>
+                    <td>
+                        <img src="{{ url_for('static', filename='images/satya.png') }}" alt="Image Description">
+                    </td>
+        </div>
+                    <td>
+                        <div class="logo2">
+                            <img src="{{ url_for('static', filename='images/text.png') }}" alt="Image Description">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+    </div>
+        
+    <div class="navbar">
+        <a href="{{ url_for('home') }}">{{ gettext('Home')}}</a>
+        <a href="#">{{ gettext('About_us')}}</a>
+        <a href="#">{{ gettext('Contact')}}</a>
+        <a href="{{url_for('login')}}">{{ gettext('Login')}}</a>
+        <a href="#">{{ gettext('Register')}}</a>
+        <span class="user-icon">&#x1F464;</span>
+    </div>
+    <div class="container">
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="{{ url_for('static', filename='images/image.png') }}" alt="Image Description">
+                <img src="{{ url_for('static', filename='images/image1.png') }}" alt="Image Description">
+                <img src="{{ url_for('static', filename='images/image5.jpeg') }}" alt="Image Description">
+                <img src="{{ url_for('static', filename='images/image6.jpeg') }}" alt="Image Description">
+                <img src="{{ url_for('static', filename='images/image5.jpeg') }}" alt="Image Description">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div class="box" id="box" onclick="window.location.href='{{ url_for('ask_query') }}'">
+        <div class="box-header">Know your Rights</div>
+        <div class="box-content">
+            <table>
+                <tr>
+                    <td>
+                        <p>{{ gettext('Know Your Rights is a fundamental concept that empowers individuals by informing them about their legal entitlements and freedoms. It serves as a guide to understanding and asserting ones legal protections in various contexts, promoting informed decision-making and advocacy.')}}</p>
+                    </td>
+                </tr>
+        </div>
+        <tr>
+        <td>
+        <div class="box-button">
+            <a class="button-link" href="{{ url_for('ask_query') }}">{{ gettext('Know your Rights')}}</a>
+        </div>
+    </td>
+        </tr>
+    </table>
+    </div>
+    </div>
+   
+<footer>
+    <div class="footer-content">
+        <div class="footer-nav">
+            <ul>
+                <li><u><a href="#">FAQs</a></u></li>
+                <li>|</li>
+                <li><u><a href="#">{{ gettext('External Links')}}</a></u></li>
+                <li>|</li>
+                <li><u><a href="#">{{ gettext('Help')}}</a></u></li>
+                <li>|</li>
+                <li><u><a href="#">{{ gettext('Contact')}}</a></u></li>
+                <li>|</li>
+                <li><u><a href="#">{{ gettext('Disclaimer')}}</a></u></li>
+                <li>|</li>
+                <li><u><a href="#">{{ gettext('Feedback')}}</a></u></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>  
+   
